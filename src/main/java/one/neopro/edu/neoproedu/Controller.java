@@ -9,8 +9,9 @@ public class Controller {
     public Controller() {
     }
 
-    @PostMapping
+    @PostMapping("")
     public String registerNewClient(@RequestBody Long id) {
+        Client client = new Client(id);
         return String.valueOf(id);
     }
 }
