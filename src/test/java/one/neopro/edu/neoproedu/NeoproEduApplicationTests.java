@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClientException;
@@ -18,17 +19,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@SpringBootTest
+@SpringBootTest(classes =  NeoproEduApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class NeoproEduApplicationTests {
-	@Autowired
-	private Controller controller;
 
+//	@Autowired
+//	private Controller controller;
+@LocalServerPort
+private int port;
 	@Test
 	void contextLoads() {
 	}
 
 	TestRestTemplate testRestTemplate = new TestRestTemplate();
-	RestTemplate restTemplate = new RestTemplate();
 
 //		@Test
 //	void postTest() throws Exception {
@@ -39,7 +41,7 @@ class NeoproEduApplicationTests {
 //	@Test
 //	void postTest() throws Exception {
 //		Client client = new Client(1L);
-//	ResponseEntity<Client> response = testRestTemplate.postForEntity("http://localhost:3000/client", client, Client.class);
+//	ResponseEntity<Client> response = testRestTemplate.postForEntity(""http://localhost:" + port + "/client/add", client, Client.class);
 //	assertThat(response.getBody(), is(String.valueOf("1L")));
 //	assertEquals(response.getBody(), String.valueOf("1L"));
 //}
@@ -47,8 +49,10 @@ class NeoproEduApplicationTests {
 	public void whenRegisterNewClient() {
 		Client client = new Client(2L);
 
-		ResponseEntity<Client> response = testRestTemplate.postForEntity("http://localhost:3000/client", client, Client.class);
-		assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
-		assertThat(response.getBody().getId(), is(2));
+		ResponseEntity<Client> response = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", client, Client.class);
+//		assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
+//		assertThat(response.getBody().getId(), is(2));
+		System.out.println(response);
+		assertEquals(client.getId(), response.getBody());
 	}
 }

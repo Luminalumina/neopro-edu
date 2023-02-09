@@ -1,5 +1,7 @@
 package one.neopro.edu.neoproedu;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,9 +11,10 @@ public class Controller {
     public Controller() {
     }
 
-    @PostMapping("")
-    public String registerNewClient(@RequestBody Long id) {
+    @PostMapping("/add")
+    @ResponseBody
+    public Long registerNewClient(@RequestBody Long id) {
         Client client = new Client(id);
-        return String.valueOf(id);
+        return client.getId();
     }
 }
