@@ -8,27 +8,22 @@ import javax.persistence.*;
 @Table(name = "Clients")
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "Name")
     private String name;
-    @Column(name = "email")
-    @Email
-    private String email;
 
 
-    public Client(Long id) {
-    }
+
+//    public Client(Long id) {
+//    }
 
     public Client(String name) {
         this.name = name;
     }
 
-    public Client(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
+
 
     public Client() {
     }
@@ -37,9 +32,6 @@ public class Client {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
