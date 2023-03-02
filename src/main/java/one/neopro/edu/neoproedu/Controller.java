@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/client")
 public class Controller {
 
+
     public Controller() {
     }
 
     @PostMapping("/add")
     @ResponseBody
-    public Long registerNewClient(@RequestBody Long id) {
-        Client client = new Client(id);
-        return client.getId();
+    public Client registerNewClient(@RequestBody Client client) {
+                return client;
     }
 }
