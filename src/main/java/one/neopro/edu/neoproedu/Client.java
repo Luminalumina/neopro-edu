@@ -1,7 +1,5 @@
 package one.neopro.edu.neoproedu;
 
-import jakarta.validation.constraints.Email;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,7 +9,8 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "Name")
+
+    @Column(name = "name")
     private String name;
 
 
