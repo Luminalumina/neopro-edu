@@ -13,11 +13,15 @@ private final ClientRepo repo;
         this.repo = repo;
     }
 
-    public Client getClient(String name) {
+    public Client getClientByName(String name) {
         Client client = repo.findClientByName(name);
         if (client == null) {
             throw new IllegalStateException("Client with name " + name + " does not exist.");
         }
         return client;
+    }
+
+    public void save(Client client) {
+        repo.save(client);
     }
 }

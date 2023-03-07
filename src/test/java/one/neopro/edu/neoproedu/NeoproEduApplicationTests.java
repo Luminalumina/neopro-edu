@@ -22,15 +22,22 @@ class NeoproEduApplicationTests {
     }
 
     TestRestTemplate testRestTemplate = new TestRestTemplate();
+    Client client = new Client("Tom");
 
 
     @Test
     public void whenRegisterNewClient() {
-        Client client = new Client("Tom");
 
         ResponseEntity<Client> response = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", client, Client.class);
 
         System.out.println(response);
         assertEquals(client.getName(), response.getBody().getName());
+    }
+
+    @Test
+    public void whenGetClientByName(){
+        ResponseEntity<Client> response1 = testRestTemplate.getForEntity("http://localhost:" + port + "/get-by-name", Client.class);
+        assertEquals(client.getName(), response1.getBody().getName());
+
     }
 }

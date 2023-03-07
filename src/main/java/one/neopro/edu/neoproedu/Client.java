@@ -1,6 +1,8 @@
 package one.neopro.edu.neoproedu;
 
-import javax.persistence.*;
+//import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Clients")
