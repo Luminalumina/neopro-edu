@@ -11,6 +11,7 @@ public class ConverterService {
 
     public ClientEntity convertToEntity(ClientDTO dto) {
         ClientEntity clientEntity = modelMapper.map(dto, ClientEntity.class);
+        dto.setId(clientEntity.getId());
         return clientEntity;
     }
 

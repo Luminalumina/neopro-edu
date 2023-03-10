@@ -13,7 +13,6 @@ public class ClientController {
     @Autowired
     private ConverterService converterService;
 
-
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }

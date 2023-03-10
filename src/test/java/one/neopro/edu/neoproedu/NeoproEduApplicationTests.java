@@ -30,16 +30,17 @@ class NeoproEduApplicationTests {
     void contextLoads() {
     }
 
-
-
-
-
-    private ClientDTO createTestClient(String testName){
+    private ClientDTO createTestClient(String testName) {
         ClientEntity testClient = new ClientEntity(testName);
         repo.save(testClient);
         return converterService.convertToDTO(testClient);
     }
 
+    private ClientEntity createTestClientEntity(String testName) {
+        ClientEntity testClient = new ClientEntity(testName);
+        repo.save(testClient);
+        return (testClient);
+    }
 
     @Test
     public void whenRegisterNewClient() {
@@ -55,14 +56,14 @@ class NeoproEduApplicationTests {
 
     @Test
     public void whenGetClientById() {
-        ClientDTO bob = createTestClient("Bob");
+        ClientEntity bob = createTestClientEntity("Bob");
 
         // 1й вариант
 //        TestClient client = testRestTemplate.getForObject("http://localhost:" + port + "/get-by-id/{id}", TestClient.class, bob.getTestId()); // пытаюсь получить объект по id
 //        Assertions.assertEquals(client.getTestName(), bob.getTestName()); //сравниваю имя объекта и Боба
 
         // 2й вариант
-        ResponseEntity<ClientDTO> response = testRestTemplate.getForEntity("http://localhost:" + port + "/get-by-id/{id}", ClientDTO.class, bob);
+        ResponseEntity<ClientEntity> response = testRestTemplate.getForEntity("http://localhost:" + port + "/get-by-id/{id}", ClientEntity.class, bob.getId());
         assertEquals(bob.getName(), response.getBody().getName());
 
         // 3й вариант
