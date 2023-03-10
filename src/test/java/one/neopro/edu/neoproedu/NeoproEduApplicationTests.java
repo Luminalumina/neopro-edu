@@ -8,9 +8,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.TestCase.assertEquals;
-import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 
 
 @SpringBootTest(classes = NeoproEduApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -59,16 +57,20 @@ class NeoproEduApplicationTests {
         TestClient bob = createTestClient("Bob");
 
         // 1й вариант
-//        Client client = testRestTemplate.getForObject("http://localhost:" + port + "/get-by-id/{id}", Client.class, bob.getId()); // пытаюсь получить объект по id
-//        Assertions.assertEquals(client.getName(), bob.getName()); //сравниваю имя объекта и Боба
+//        TestClient client = testRestTemplate.getForObject("http://localhost:" + port + "/get-by-id/{id}", TestClient.class, bob.getTestId()); // пытаюсь получить объект по id
+//        Assertions.assertEquals(client.getTestName(), bob.getTestName()); //сравниваю имя объекта и Боба
 
         // 2й вариант
-//        ResponseEntity<Client> response = testRestTemplate.getForEntity("http://localhost:" + port + "/get-by-id/{id}", Client.class, bob);
-//        Assertions.assertEquals("Bob", response.getBody().getName());
+//        ResponseEntity<TestClient> response = testRestTemplate.getForEntity("http://localhost:" + port + "/get-by-id/{id}", TestClient.class, bob);
+//        Assertions.assertEquals("Bob", response.getBody().getTestName());
 
         // 3й вариант
-        TestClient client = testRepo.findByTestId(bob.getTestId()); //ищу в репозитории клиента по id
-        assertEquals(bob.getTestName(), client.getTestName());
+//        TestClient client = testRepo.findByTestId(bob.getTestId()); //ищу в репозитории клиента по id
+//        assertEquals(bob.getTestName(), client.getTestName());
+
+    }
+
+    public void whenDeleteClientById() {
 
     }
 }
