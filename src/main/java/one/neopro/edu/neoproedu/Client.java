@@ -4,6 +4,7 @@ package one.neopro.edu.neoproedu;
 
 import jakarta.persistence.*;
 
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
 @Table(name = "Clients")
 public class Client {
