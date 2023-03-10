@@ -1,3 +1,7 @@
+one\neopro\edu\neoproedu\ClientController.class
+one\neopro\edu\neoproedu\ClientDTO.class
 one\neopro\edu\neoproedu\NeoproEduApplication.class
-one\neopro\edu\neoproedu\Controller.class
-one\neopro\edu\neoproedu\Client.class
+one\neopro\edu\neoproedu\ConverterService.class
+one\neopro\edu\neoproedu\ClientEntity.class
+one\neopro\edu\neoproedu\ClientService.class
+one\neopro\edu\neoproedu\ClientRepo.class

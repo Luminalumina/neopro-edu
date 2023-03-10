@@ -11,11 +11,13 @@ public class ConverterService {
 
     public ClientEntity convertToEntity(ClientDTO dto) {
         ClientEntity clientEntity = modelMapper.map(dto, ClientEntity.class);
+//        clientEntity.setId(dto.getId());
         return clientEntity;
     }
 
     public ClientDTO convertToDTO(ClientEntity clientEntity) {
         ClientDTO dto = modelMapper.map(clientEntity, ClientDTO.class);
+        dto.setId(clientEntity.getId());
         return dto;
     }
 
