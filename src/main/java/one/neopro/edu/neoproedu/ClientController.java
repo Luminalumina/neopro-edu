@@ -22,7 +22,7 @@ public class ClientController {
     }
 
     @PostMapping("/add")
-    public ClientDTO registerNeClientClient(@RequestBody ClientDTO dto) {
+    public ClientDTO registerNewClient(@RequestBody ClientDTO dto) {
         clientService.save(converterService.convertToEntity(dto));
         return dto;
     }
