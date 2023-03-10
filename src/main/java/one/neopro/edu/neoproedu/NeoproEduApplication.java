@@ -19,4 +19,3 @@ public class NeoproEduApplication {
 		return new ModelMapper();
 	}
 }
-
