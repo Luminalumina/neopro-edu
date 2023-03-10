@@ -3,9 +3,6 @@ package one.neopro.edu.neoproedu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-import java.util.Optional;
-
 @Service
 public class ClientService {
 
@@ -16,17 +13,17 @@ public class ClientService {
         this.repo = repo;
     }
 
-    public Client getClientByName(String name) {
+    public ClientEntity getClientByName(String name) {
 
         return repo.findClientByName(name);
     }
 
-    public Client getClientById(Long id) {
+    public ClientEntity getClientById(Long id) {
         return repo.findClientById(id);
     }
 
-    public void save(Client client) {
-        repo.save(client);
+    public void save(ClientEntity clientEntity) {
+        repo.save(clientEntity);
     }
 
     public void deleteClient(Long id) {

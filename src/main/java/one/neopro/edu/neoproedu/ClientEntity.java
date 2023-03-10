@@ -1,13 +1,9 @@
 package one.neopro.edu.neoproedu;
-
-//import javax.persistence.*;
-
 import jakarta.persistence.*;
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-@Table(name = "Clients")
-public class Client {
+@Table(name = "clients")
+public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,19 +12,11 @@ public class Client {
     @Column(name = "name")
     private String name;
 
-
-
-//    public Client(Long id) {
-//    }
-
-
-    public Client(String name) {
+    public ClientEntity(String name) {
         this.name = name;
     }
-//
-//
-//
-    public Client() {
+
+    public ClientEntity() {
     }
 
 

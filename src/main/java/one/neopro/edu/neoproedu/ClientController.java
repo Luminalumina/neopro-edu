@@ -1,31 +1,35 @@
 package one.neopro.edu.neoproedu;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/client")
-public class Controller {
+public class ClientController {
 
     @Autowired
     private ClientService clientService;
+    @Autowired
+    private ConverterService converterService;
 
-    public Controller(ClientService clientService) {
+
+    public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
 
-    public Controller() {
+    public ClientController() {
     }
 
     @PostMapping("/add")
-    public Client registerNewClient(@RequestBody Client client) {
-        clientService.save(client);
-        return client;
+    public ClientDTO registerNeClientClient(@RequestBody ClientDTO dto) {
+        clientService.save(converterService.convertToEntity(dto));
+        return dto;
     }
 
     @GetMapping("/get-by-id/{id}")
-    public Client getClientById(@PathVariable Long id) {
-        return clientService.getClientById(id);
+    public ClientDTO getClientById(@PathVariable Long id) {
+        return converterService.convertToDTO(clientService.getClientById(id));
     }
 
     @DeleteMapping(path = "/delete/{id}")
