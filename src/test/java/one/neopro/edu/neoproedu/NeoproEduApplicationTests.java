@@ -1,15 +1,24 @@
 package one.neopro.edu.neoproedu;
 
 import org.junit.After;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
+import static org.assertj.core.api.ClassBasedNavigableIterableAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 @SpringBootTest(classes = NeoproEduApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -25,30 +34,21 @@ class NeoproEduApplicationTests {
     private ConverterService converterService;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private ClientService clientService;
+
 
     @Test
     void contextLoads() {
     }
 
-    private ClientDTO createTestClient(String testName) {
-        ClientEntity testClient = new ClientEntity(testName);
-        repo.save(testClient);
-        return converterService.convertToDTO(testClient);
-    }
-
-    private ClientEntity createTestClientEntity(String testName) {
-        ClientEntity testClient = new ClientEntity(testName);
-        repo.save(testClient);
-        return (testClient);
-    }
 
     @Test
     public void whenRegisterNewClient() {
 
-        ClientDTO max = createTestClient("Max");
+        ClientDTO max = converterService.convertAddDTOtoDTO(new ClientAddDTO("Max"));
         ResponseEntity<ClientDTO> response = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", max, ClientDTO.class);
 
-        System.out.println(response);
         assertEquals(max.getName(), response.getBody().getName());
 
 
@@ -56,23 +56,45 @@ class NeoproEduApplicationTests {
 
     @Test
     public void whenGetClientById() {
-        ClientEntity bob = createTestClientEntity("Bob");
+        ClientAddDTO clientAddDTO = new ClientAddDTO("Bob");
+        ClientDTO bob = converterService.convertAddDTOtoDTO(clientAddDTO);
+        ResponseEntity<ClientDTO> responseBob = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", bob, ClientDTO.class);
 
-        // 1й вариант
-//        TestClient client = testRestTemplate.getForObject("http://localhost:" + port + "/get-by-id/{id}", TestClient.class, bob.getTestId()); // пытаюсь получить объект по id
-//        Assertions.assertEquals(client.getTestName(), bob.getTestName()); //сравниваю имя объекта и Боба
-
-        // 2й вариант
-        ResponseEntity<ClientEntity> response = testRestTemplate.getForEntity("http://localhost:" + port + "/get-by-id/{id}", ClientEntity.class, bob.getId());
-        assertEquals(bob.getName(), response.getBody().getName());
-
-        // 3й вариант
-//        TestClient client = testRepo.findByTestId(bob.getTestId()); //ищу в репозитории клиента по id
-//        assertEquals(bob.getTestName(), client.getTestName());
-
+        ResponseEntity<ClientDTO> response1 = testRestTemplate.getForEntity("http://localhost:" + port + "/client/get-by-id/{id}", ClientDTO.class, responseBob.getBody().getId());
+        assertEquals(responseBob.getBody().getName(), response1.getBody().getName());
+    }
+    ResponseEntity<List<ClientDTO>> listAllClients() {
+        List<ClientDTO> dtoList = clientService.findAll();
+        return ResponseEntity.ok().body(dtoList);
+    }
+    Long countOfClients() {
+        return Long.valueOf(listAllClients().getBody().size());
     }
 
+    @Test
     public void whenDeleteClientById() {
+        ClientAddDTO clientAddDTO = new ClientAddDTO("Karl");
+        ClientDTO karl = converterService.convertAddDTOtoDTO(clientAddDTO);
+        ResponseEntity<ClientDTO> responseKarl = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", karl, ClientDTO.class);
+        Long id = responseKarl.getBody().getId();
+        Long countBefore = countOfClients();
+        testRestTemplate.delete("http://localhost:" + port + "/client/delete/{id}", id);
+        Long countAfter = countOfClients();
+        Assertions.assertTrue(countBefore > countAfter);
+    }
+
+    @Test
+    public void whenUpdatePerson() {
+        ClientAddDTO clientAddDTO = new ClientAddDTO("Phil");
+        ClientDTO phil = converterService.convertAddDTOtoDTO(clientAddDTO);
+        String newName = "Phil2";
+        ResponseEntity<ClientDTO> responsePhil = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", phil, ClientDTO.class);
+        Long id = responsePhil.getBody().getId();
+        ClientDTO editedPhilDTO = clientService.updateClient(id, newName);
+        ResponseEntity<ClientDTO> responseEditedPhil = testRestTemplate.getForEntity("http://localhost:" + port + "/client/get-by-id/{id}", ClientDTO.class, id);
+
+        assertEquals(newName, clientService.getClientById(id).getName());
+        assertEquals(responseEditedPhil.getBody().getId(), responsePhil.getBody().getId());
 
     }
 }
