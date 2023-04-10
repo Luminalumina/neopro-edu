@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/client")
-//@Tag(name = "Клиенты", description = "Все операции с клиентами")
+@Tag(name = "Клиенты", description = "Все операции с клиентами")
 public class ClientController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class ClientController {
     }
 
     @PostMapping("/add")
-//    @Operation(summary = "Регистрация нового клиента")
+    @Operation(summary = "Регистрация нового клиента")
     public ClientDTO registerNewClient(@RequestBody ClientAddDTO addDto) {
         ClientDTO dto = new ClientDTO();
         dto = converterService.convertAddDTOtoDTO(addDto);
@@ -33,19 +33,19 @@ public class ClientController {
     }
 
     @GetMapping("/get-by-id/{id}")
-//    @Operation(summary = "Поиск клиента по id")
+    @Operation(summary = "Поиск клиента по id")
     public ClientDTO getClientById(@PathVariable Long id) {
         return converterService.convertToDTO(clientService.getClientById(id));
     }
 
     @DeleteMapping(path = "/delete/{id}")
-//    @Operation(summary = "Удаление клиента")
+    @Operation(summary = "Удаление клиента")
             public void deleteClientById(@PathVariable("id") Long id) {
         clientService.deleteClient(id);
     }
 
     @PatchMapping(path = "/update/{id}")
-//    @Operation(summary = "Обновление данных клиента")
+    @Operation(summary = "Обновление данных клиента")
             public ClientDTO updateClient(
             @PathVariable("id") Long id,
             @RequestParam String name) {
