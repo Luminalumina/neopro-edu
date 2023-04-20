@@ -1,6 +1,11 @@
 package one.neopro.edu.neoproedu;
 
-import org.junit.After;
+import one.neopro.edu.neoproedu.model.ClientAddDTO;
+import one.neopro.edu.neoproedu.model.ClientDTO;
+import one.neopro.edu.neoproedu.model.ClientEntity;
+import one.neopro.edu.neoproedu.repository.ClientRepo;
+import one.neopro.edu.neoproedu.service.ClientService;
+import one.neopro.edu.neoproedu.service.ConverterService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
@@ -8,14 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-import static org.assertj.core.api.ClassBasedNavigableIterableAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -87,7 +88,7 @@ class NeoproEduApplicationTests {
     public void whenUpdatePerson() {
         ClientAddDTO clientAddDTO = new ClientAddDTO("Phil");
         ClientDTO phil = converterService.convertAddDTOtoDTO(clientAddDTO);
-        String newName = "Phil2";
+        String newName = "PhilNew";
         ResponseEntity<ClientDTO> responsePhil = testRestTemplate.postForEntity("http://localhost:" + port + "/client/add", phil, ClientDTO.class);
         Long id = responsePhil.getBody().getId();
         ClientDTO editedPhilDTO = clientService.updateClient(id, newName);

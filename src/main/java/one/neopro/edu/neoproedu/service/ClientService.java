@@ -1,7 +1,9 @@
-package one.neopro.edu.neoproedu;
+package one.neopro.edu.neoproedu.service;
 
+import one.neopro.edu.neoproedu.model.ClientDTO;
+import one.neopro.edu.neoproedu.model.ClientEntity;
+import one.neopro.edu.neoproedu.repository.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class ClientService {
     }
 
     public ClientEntity getClientById(Long id) {
+
         return repo.findClientById(id);
     }
 
@@ -40,6 +43,7 @@ public class ClientService {
         ClientEntity client = getClientById(id);
         client.setName(name);
         repo.save(client);
+
         return converterService.convertToDTO(client);
     }
 

@@ -1,5 +1,8 @@
-package one.neopro.edu.neoproedu;
+package one.neopro.edu.neoproedu.service;
 
+import one.neopro.edu.neoproedu.model.ClientAddDTO;
+import one.neopro.edu.neoproedu.model.ClientDTO;
+import one.neopro.edu.neoproedu.model.ClientEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
