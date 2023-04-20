@@ -75,6 +75,7 @@ public class ClientController {
     }
 
     @PatchMapping(path = "/update/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     @Operation(summary = "Обновление данных клиента")
     public ClientDTO updateClient(
             @PathVariable("id") @Valid Long id,
