@@ -1,4 +1,4 @@
-package one.neopro.edu.neoproedu.model;
+package one.neopro.edu.neoproedu.DTO;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;

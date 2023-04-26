@@ -1,6 +1,8 @@
 package one.neopro.edu.neoproedu.service;
 
-import one.neopro.edu.neoproedu.model.ClientDTO;
+import one.neopro.edu.neoproedu.DTO.ClientDTO;
+import one.neopro.edu.neoproedu.exception.ArgumentNotValidException;
+import one.neopro.edu.neoproedu.exception.NotFoundException;
 import one.neopro.edu.neoproedu.model.ClientEntity;
 import one.neopro.edu.neoproedu.repository.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +22,11 @@ public class ClientService {
         this.repo = repo;
     }
 
-    public ClientEntity getClientByName(String name) {
-
-        return repo.findClientByName(name);
-    }
-
     public ClientEntity getClientById(Long id) {
-
-        return repo.findClientById(id);
+        if (repo.findClientById(id) != null) {
+            return (repo.findClientById(id));
+        } else
+            throw new NotFoundException();
     }
 
     public ClientEntity save(ClientEntity clientEntity) {
@@ -36,15 +35,19 @@ public class ClientService {
     }
 
     public void deleteClient(Long id) {
+        getClientById(id);
         repo.deleteById(id);
     }
 
-    public ClientDTO updateClient(Long id, String name) {
+    public ClientDTO updateClient(Long id, String name) throws ArgumentNotValidException {
         ClientEntity client = getClientById(id);
         client.setName(name);
-        repo.save(client);
-
+        if (name.matches("^[a-zA-Zа-яА-Я- 'А-ЩЬЮЯҐЄІЇа-щьюяґєії]*$")) {
+            repo.save(client);
         return converterService.convertToDTO(client);
+    }
+        else throw new ArgumentNotValidException();
+
     }
 
     public List<ClientDTO> findAll() {

@@ -1,12 +1,27 @@
-package one.neopro.edu.neoproedu.exception;
+package one.neopro.edu.neoproedu.DTO;
 
 public class ErrorDTO {
     private String errorCode;
     private String errorMessage;
 
+    public String getSystemErrorMessage() {
+        return systemErrorMessage;
+    }
 
+    public void setSystemErrorMessage(String systemErrorMessage) {
+        this.systemErrorMessage = systemErrorMessage;
+    }
+
+    private String systemErrorMessage;
 
     public ErrorDTO() {
+    }
+
+
+    public ErrorDTO(String errorCode, String errorMessage, String systemErrorMessage) {
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+        this.systemErrorMessage = systemErrorMessage;
     }
 
     public ErrorDTO(String errorCode, String errorMessage) {

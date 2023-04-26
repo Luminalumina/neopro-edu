@@ -1,4 +1,4 @@
-package one.neopro.edu.neoproedu.model;
+package one.neopro.edu.neoproedu.DTO;
 
 public class ClientDTO {
     private Long id;

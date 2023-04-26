@@ -1,16 +1,22 @@
 package one.neopro.edu.neoproedu.service;
 
-import one.neopro.edu.neoproedu.model.ClientAddDTO;
-import one.neopro.edu.neoproedu.model.ClientDTO;
+import jakarta.validation.Valid;
+import one.neopro.edu.neoproedu.DTO.ClientAddDTO;
+import one.neopro.edu.neoproedu.DTO.ClientDTO;
+import one.neopro.edu.neoproedu.DTO.ErrorDTO;
+import one.neopro.edu.neoproedu.exception.ArgumentNotValidException;
 import one.neopro.edu.neoproedu.model.ClientEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @Service
 public class ConverterService {
     @Autowired
     private ModelMapper modelMapper;
+    private ErrorDTO errorDTO;
+    private final String  regex = "^[a-zA-Zа-яА-Я- 'А-ЩЬЮЯҐЄІЇа-щьюяґєії]*$";
 
     public ClientEntity convertToEntity(ClientDTO dto) {
         ClientEntity clientEntity = modelMapper.map(dto, ClientEntity.class);
@@ -32,8 +38,15 @@ public class ConverterService {
         return dto;
     }
 
-    public ClientDTO convertAddDTOtoDTO (ClientAddDTO addDTO) {
+    public ClientDTO convertAddDTOtoDTO (@Valid ClientAddDTO addDTO) throws MethodArgumentNotValidException, ArgumentNotValidException{
         ClientDTO dto = new ClientDTO();
+//        try {
+//            if (!addDTO.getName().matches(regex))
+//                throw new ArgumentNotValidException();
+//
+//        } catch (ArgumentNotValidException e) {
+//            errorDTO.setSystemErrorMessage(e.getMessage());
+//        }
         dto.setName(addDTO.getName());
         return dto;
     }
