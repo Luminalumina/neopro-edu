@@ -368,3 +368,83 @@ Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-valid
 2023-04-27 11:56:14.335  INFO LAPTOP-1T2PG56S --- [nio-5000-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-04-27 11:56:14.335  INFO LAPTOP-1T2PG56S --- [nio-5000-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
 2023-04-27 11:56:14.336  INFO LAPTOP-1T2PG56S --- [nio-5000-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-04-27 12:00:04.438  INFO LAPTOP-1T2PG56S --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.0.Final
+2023-04-27 12:00:04.506  INFO LAPTOP-1T2PG56S --- [           main] o.n.e.n.NeoproEduApplicationTests        : Starting NeoproEduApplicationTests using Java 18.0.2 with PID 23376 (started by BSiny in C:\Users\BSiny\IdeaProjects\neopro-edu)
+2023-04-27 12:00:04.512  INFO LAPTOP-1T2PG56S --- [           main] o.n.e.n.NeoproEduApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2023-04-27 12:00:05.484  INFO LAPTOP-1T2PG56S --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-27 12:00:05.548  INFO LAPTOP-1T2PG56S --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interfaces.
+2023-04-27 12:00:06.303  INFO LAPTOP-1T2PG56S --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 0 (http)
+2023-04-27 12:00:06.317  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-auto-1"]
+2023-04-27 12:00:06.318  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-04-27 12:00:06.318  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-27 12:00:06.446  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-04-27 12:00:06.448  INFO LAPTOP-1T2PG56S --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1905 ms
+2023-04-27 12:00:06.701  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.16.3 by Redgate
+2023-04-27 12:00:06.702  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.l.VersionPrinter                 : See release notes here: https://rd.gt/416ObMi
+2023-04-27 12:00:06.702  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.l.VersionPrinter                 : 
+2023-04-27 12:00:06.720  INFO LAPTOP-1T2PG56S --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-04-27 12:00:06.974  INFO LAPTOP-1T2PG56S --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3cbfdf5c
+2023-04-27 12:00:06.975  INFO LAPTOP-1T2PG56S --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-04-27 12:00:06.996  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://localhost:5432/edu (PostgreSQL 15.1)
+2023-04-27 12:00:07.036  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.c.DbValidate                     : Successfully validated 1 migration (execution time 00:00.021s)
+2023-04-27 12:00:07.225  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 1
+2023-04-27 12:00:07.226  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-04-27 12:00:07.353  INFO LAPTOP-1T2PG56S --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 12:00:07.460  INFO LAPTOP-1T2PG56S --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-04-27 12:00:07.734  WARN LAPTOP-1T2PG56S --- [           main] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-04-27 12:00:07.959  INFO LAPTOP-1T2PG56S --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-27 12:00:08.876  INFO LAPTOP-1T2PG56S --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 12:00:08.886  INFO LAPTOP-1T2PG56S --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 12:00:09.421  WARN LAPTOP-1T2PG56S --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-27 12:00:10.339  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-auto-1"]
+2023-04-27 12:00:10.367  INFO LAPTOP-1T2PG56S --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 65158 (http) with context path ''
+2023-04-27 12:00:10.379  INFO LAPTOP-1T2PG56S --- [           main] o.n.e.n.NeoproEduApplicationTests        : Started NeoproEduApplicationTests in 6.212 seconds (process running for 8.317)
+2023-04-27 12:00:10.746  INFO LAPTOP-1T2PG56S --- [o-auto-1-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-27 12:00:10.746  INFO LAPTOP-1T2PG56S --- [o-auto-1-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-04-27 12:00:10.747  INFO LAPTOP-1T2PG56S --- [o-auto-1-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-04-27 12:00:10.902  WARN LAPTOP-1T2PG56S --- [o-auto-1-exec-3] o.s.w.s.PageNotFound                     : No mapping for GET /client/get-by-id/
+2023-04-27 12:00:10.903  WARN LAPTOP-1T2PG56S --- [o-auto-1-exec-3] o.s.w.s.PageNotFound                     : No endpoint GET /client/get-by-id/.
+2023-04-27 12:00:10.904  WARN LAPTOP-1T2PG56S --- [o-auto-1-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No endpoint GET /client/get-by-id/.]
+2023-04-27 12:00:11.069  WARN LAPTOP-1T2PG56S --- [o-auto-1-exec-6] o.s.w.s.PageNotFound                     : No mapping for DELETE /client/delete/
+2023-04-27 12:00:11.069  WARN LAPTOP-1T2PG56S --- [o-auto-1-exec-6] o.s.w.s.PageNotFound                     : No endpoint DELETE /client/delete/.
+2023-04-27 12:00:11.070  WARN LAPTOP-1T2PG56S --- [o-auto-1-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No endpoint DELETE /client/delete/.]
+2023-04-27 12:00:11.134  INFO LAPTOP-1T2PG56S --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 12:00:11.136  INFO LAPTOP-1T2PG56S --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-04-27 12:00:11.140  INFO LAPTOP-1T2PG56S --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-04-27 12:01:40.876  INFO LAPTOP-1T2PG56S --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.0.Final
+2023-04-27 12:01:40.937  INFO LAPTOP-1T2PG56S --- [           main] o.n.e.n.NeoproEduApplicationTests        : Starting NeoproEduApplicationTests using Java 18.0.2 with PID 22052 (started by BSiny in C:\Users\BSiny\IdeaProjects\neopro-edu)
+2023-04-27 12:01:40.943  INFO LAPTOP-1T2PG56S --- [           main] o.n.e.n.NeoproEduApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2023-04-27 12:01:41.837  INFO LAPTOP-1T2PG56S --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-27 12:01:41.897  INFO LAPTOP-1T2PG56S --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interfaces.
+2023-04-27 12:01:42.607  INFO LAPTOP-1T2PG56S --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 0 (http)
+2023-04-27 12:01:42.619  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-auto-1"]
+2023-04-27 12:01:42.621  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-04-27 12:01:42.621  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-27 12:01:42.736  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-04-27 12:01:42.738  INFO LAPTOP-1T2PG56S --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1769 ms
+2023-04-27 12:01:42.964  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.l.VersionPrinter                 : Flyway Community Edition 9.16.3 by Redgate
+2023-04-27 12:01:42.965  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.l.VersionPrinter                 : See release notes here: https://rd.gt/416ObMi
+2023-04-27 12:01:42.965  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.l.VersionPrinter                 : 
+2023-04-27 12:01:42.982  INFO LAPTOP-1T2PG56S --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-04-27 12:01:43.194  INFO LAPTOP-1T2PG56S --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30228de7
+2023-04-27 12:01:43.196  INFO LAPTOP-1T2PG56S --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-04-27 12:01:43.217  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.d.b.BaseDatabaseType             : Database: jdbc:postgresql://localhost:5432/edu (PostgreSQL 15.1)
+2023-04-27 12:01:43.265  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.c.DbValidate                     : Successfully validated 1 migration (execution time 00:00.023s)
+2023-04-27 12:01:43.327  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.c.DbMigrate                      : Current version of schema "public": 1
+2023-04-27 12:01:43.328  INFO LAPTOP-1T2PG56S --- [           main] o.f.c.i.c.DbMigrate                      : Schema "public" is up to date. No migration necessary.
+2023-04-27 12:01:43.450  INFO LAPTOP-1T2PG56S --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27 12:01:43.517  INFO LAPTOP-1T2PG56S --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-04-27 12:01:43.765  WARN LAPTOP-1T2PG56S --- [           main] o.h.o.deprecation                        : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-04-27 12:01:43.993  INFO LAPTOP-1T2PG56S --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-27 12:01:44.868  INFO LAPTOP-1T2PG56S --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27 12:01:44.878  INFO LAPTOP-1T2PG56S --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 12:01:45.401  WARN LAPTOP-1T2PG56S --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-27 12:01:46.373  INFO LAPTOP-1T2PG56S --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-auto-1"]
+2023-04-27 12:01:46.402  INFO LAPTOP-1T2PG56S --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 65207 (http) with context path ''
+2023-04-27 12:01:46.412  INFO LAPTOP-1T2PG56S --- [           main] o.n.e.n.NeoproEduApplicationTests        : Started NeoproEduApplicationTests in 5.785 seconds (process running for 7.521)
+2023-04-27 12:01:46.795  INFO LAPTOP-1T2PG56S --- [o-auto-1-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-27 12:01:46.796  INFO LAPTOP-1T2PG56S --- [o-auto-1-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-04-27 12:01:46.797  INFO LAPTOP-1T2PG56S --- [o-auto-1-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-04-27 12:01:47.203  INFO LAPTOP-1T2PG56S --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27 12:01:47.205  INFO LAPTOP-1T2PG56S --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-04-27 12:01:47.209  INFO LAPTOP-1T2PG56S --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
