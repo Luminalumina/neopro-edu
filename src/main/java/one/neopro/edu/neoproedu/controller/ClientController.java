@@ -40,7 +40,8 @@ public class ClientController {
     @PostMapping("/add")
     @ResponseStatus(value = HttpStatus.CREATED)
     @Operation(summary = "Регистрация нового клиента")
-    @Parameter(name = "name", example = "Sam Smith")
+    @Parameter(name = "name", example = "Василенко Ольга")
+    @Parameter(name = "email", example = "volga@i.ua")
 
     public ClientDTO registerNewClient(@RequestBody @Valid ClientAddDTO addDto) throws ArgumentNotValidException, MethodArgumentNotValidException {
         ClientDTO dto = new ClientDTO();
